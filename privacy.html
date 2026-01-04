@@ -80,7 +80,6 @@
             <ul>
                 <li>User preferences (polling interval, message display settings, masking options)</li>
                 <li>Active session data (which channels you're monitoring)</li>
-                <li>YouTube API quota usage statistics (local counter only)</li>
             </ul>
             <p><strong>How we store it:</strong> Unencrypted in Chrome's local storage (<code>chrome.storage.local</code>).</p>
             <p><strong>How long we keep it:</strong> Until you clear the extension's data or uninstall.</p>
@@ -102,7 +101,6 @@
                 <li><strong>Chat Retrieval:</strong> Tokens authorize the extension to read live chat messages from channels you choose to monitor</li>
                 <li><strong>Message Display:</strong> Chat messages are injected into your Twitch Dashboard's DOM for viewing</li>
                 <li><strong>Moderation:</strong> Tokens allow you to delete messages or ban users on YouTube (if you have moderator permissions)</li>
-                <li><strong>Quota Tracking:</strong> YouTube API quota usage is tracked locally to prevent exceeding your daily limit</li>
             </ul>
 
             <h2>4. Data We Do NOT Collect</h2>
