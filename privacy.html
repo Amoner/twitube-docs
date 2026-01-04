@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Twitch YouTube Kick Chat Merger</title>
+    <meta name="description" content="Privacy Policy for Twitch YouTube Kick Chat Merger Chrome Extension. Learn how we handle your data.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon">💬</div>
+                <span>TwiTube</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="https://github.com/Amoner/twitube-docs/issues">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="policy-page">
+        <div class="container-narrow">
+            <h1>Privacy Policy</h1>
+
+            <div class="last-updated">
+                <strong>Last Updated:</strong> January 2026<br>
+                <strong>Effective Date:</strong> January 2026<br>
+                <strong>Version:</strong> 1.4.6
+            </div>
+
+            <div class="highlight">
+                <strong>TL;DR:</strong> Twitch YouTube Kick Chat Merger processes all data locally on your device. We don't collect, transmit, or sell your personal information. We don't have servers. All chat messages and authentication tokens stay on your computer, encrypted and secure.
+            </div>
+
+            <h2>1. Introduction</h2>
+            <p>
+                Twitch YouTube Kick Chat Merger ("we", "our", or "the extension") is a Chrome browser extension that merges YouTube, Twitch, and Kick chat messages into your Twitch Dashboard for personal monitoring. This Privacy Policy explains what data we handle, how we handle it, and your rights regarding your data.
+            </p>
+            <p>
+                <strong>Developer:</strong> Amoner<br>
+                <strong>Extension:</strong> Twitch YouTube Kick Chat Merger<br>
+                <strong>Website:</strong> <a href="https://amoner.github.io/twitube-docs">https://amoner.github.io/twitube-docs</a><br>
+                <strong>Contact:</strong> <a href="mailto:Artem.S.Beer@gmail.com">Artem.S.Beer@gmail.com</a>
+            </p>
+
+            <h2>2. Data We Handle</h2>
+
+            <h3>2.1 Authentication Tokens</h3>
+            <p><strong>What we collect:</strong></p>
+            <ul>
+                <li>YouTube OAuth 2.0 access tokens and refresh tokens</li>
+                <li>Twitch OAuth 2.0 access tokens</li>
+                <li>Twitch user ID and username</li>
+            </ul>
+            <p><strong>How we collect it:</strong> Through official YouTube and Twitch OAuth authorization flows when you click "Sign in with YouTube" or "Sign in with Twitch". Kick does not require authentication.</p>
+            <p><strong>Why we need it:</strong> To access YouTube Live Chat API and Twitch EventSub API on your behalf to retrieve chat messages.</p>
+            <p><strong>How we store it:</strong> Encrypted using AES-256-GCM encryption in Chrome's local storage (<code>chrome.storage.local</code>), which is isolated from websites and other extensions. The encryption key is derived from your unique extension installation ID using PBKDF2 with 100,000 iterations.</p>
+            <p><strong>How long we keep it:</strong> Until you click "Sign Out" or uninstall the extension. Tokens are automatically refreshed (YouTube only) to maintain your session.</p>
+
+            <h3>2.2 Chat Messages</h3>
+            <p><strong>What we collect:</strong></p>
+            <ul>
+                <li>YouTube live chat messages (username, message text, timestamp, user badges)</li>
+                <li>Twitch chat messages (username, message text, timestamp, user badges)</li>
+                <li>Kick chat messages (username, message text, timestamp, emotes)</li>
+            </ul>
+            <p><strong>How we collect it:</strong> Retrieved from YouTube Data API v3, Twitch EventSub WebSocket, and Kick Pusher WebSocket when you start monitoring a channel.</p>
+            <p><strong>Why we need it:</strong> To display merged chat messages in your Twitch Dashboard.</p>
+            <p><strong>How we store it:</strong> Temporarily cached in memory (service worker) and Chrome's local storage with a rolling limit of 500 messages maximum.</p>
+            <p><strong>How long we keep it:</strong> Messages older than the 500-message limit are automatically deleted. All messages are cleared when you stop monitoring or uninstall the extension.</p>
+
+            <h3>2.3 Extension Settings & Preferences</h3>
+            <p><strong>What we collect:</strong></p>
+            <ul>
+                <li>User preferences (polling interval, message display settings, masking options)</li>
+                <li>Active session data (which channels you're monitoring)</li>
+                <li>YouTube API quota usage statistics (local counter only)</li>
+            </ul>
+            <p><strong>How we store it:</strong> Unencrypted in Chrome's local storage (<code>chrome.storage.local</code>).</p>
+            <p><strong>How long we keep it:</strong> Until you clear the extension's data or uninstall.</p>
+
+            <h2>3. How We Use Your Data</h2>
+
+            <h3>3.1 Local Processing Only</h3>
+            <p><strong>All data processing happens locally on your device.</strong> We do not have servers. We do not transmit your data to any third-party servers except:</p>
+            <ul>
+                <li><strong>YouTube:</strong> To authenticate you and retrieve live chat messages via the official YouTube Data API v3</li>
+                <li><strong>Twitch:</strong> To authenticate you and retrieve chat messages via the official Twitch EventSub WebSocket API</li>
+                <li><strong>Kick:</strong> To retrieve channel info and chat messages via Kick API and Pusher WebSocket (no authentication required)</li>
+                <li><strong>Paddle:</strong> To process Pro subscription payments (Paddle is our payment processor)</li>
+            </ul>
+
+            <h3>3.2 Specific Uses</h3>
+            <ul>
+                <li><strong>Authentication:</strong> OAuth tokens are used to authenticate API requests to YouTube and Twitch</li>
+                <li><strong>Chat Retrieval:</strong> Tokens authorize the extension to read live chat messages from channels you choose to monitor</li>
+                <li><strong>Message Display:</strong> Chat messages are injected into your Twitch Dashboard's DOM for viewing</li>
+                <li><strong>Moderation:</strong> Tokens allow you to delete messages or ban users on YouTube (if you have moderator permissions)</li>
+                <li><strong>Quota Tracking:</strong> YouTube API quota usage is tracked locally to prevent exceeding your daily limit</li>
+            </ul>
+
+            <h2>4. Data We Do NOT Collect</h2>
+            <ul>
+                <li>We do NOT collect your browsing history</li>
+                <li>We do NOT collect your email address or personal information (beyond what OAuth provides)</li>
+                <li>We do NOT track your usage patterns or analytics</li>
+                <li>We do NOT sell, rent, or share your data with third parties</li>
+                <li>We do NOT display advertisements</li>
+                <li>We do NOT use cookies for tracking</li>
+                <li>We do NOT transmit data to our own servers (we don't have any)</li>
+            </ul>
+
+            <h2>5. Third-Party Services</h2>
+
+            <h3>5.1 YouTube Data API v3</h3>
+            <p>When you authenticate with YouTube and monitor a YouTube channel, the extension communicates with Google's YouTube Data API v3 to:</p>
+            <ul>
+                <li>Authenticate you via OAuth 2.0</li>
+                <li>Retrieve live chat messages</li>
+                <li>Perform moderation actions (delete messages, ban users) if you're a moderator</li>
+            </ul>
+            <p><strong>Data shared with YouTube:</strong> Your OAuth token (securely transmitted via HTTPS)</p>
+            <p><strong>YouTube's Privacy Policy:</strong> <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+
+            <h3>5.2 Twitch EventSub API</h3>
+            <p>When you authenticate with Twitch and monitor a Twitch channel, the extension communicates with Twitch's EventSub WebSocket API to:</p>
+            <ul>
+                <li>Authenticate you via OAuth 2.0</li>
+                <li>Receive real-time chat messages</li>
+            </ul>
+            <p><strong>Data shared with Twitch:</strong> Your OAuth token (securely transmitted via WSS - encrypted WebSocket)</p>
+            <p><strong>Twitch's Privacy Policy:</strong> <a href="https://www.twitch.tv/p/legal/privacy-notice/">https://www.twitch.tv/p/legal/privacy-notice/</a></p>
+
+            <h3>5.3 Kick API & Pusher WebSocket</h3>
+            <p>When you monitor a Kick channel, the extension communicates with Kick's API and Pusher WebSocket to:</p>
+            <ul>
+                <li>Retrieve channel information (channel ID, chatroom ID)</li>
+                <li>Receive real-time chat messages</li>
+            </ul>
+            <p><strong>Data shared with Kick:</strong> Only the channel name you choose to monitor (no authentication required)</p>
+            <p><strong>Kick's Privacy Policy:</strong> <a href="https://kick.com/privacy-policy">https://kick.com/privacy-policy</a></p>
+
+            <h3>5.4 Paddle (Payment Processor)</h3>
+            <p>If you upgrade to Pro, payments are processed by Paddle.com. When you make a purchase:</p>
+            <ul>
+                <li>Paddle collects payment information (credit card, billing address)</li>
+                <li>Paddle handles VAT/tax compliance as merchant of record</li>
+                <li>We only receive: subscription status, expiry date, and email (for support)</li>
+            </ul>
+            <p><strong>Paddle's Privacy Policy:</strong> <a href="https://www.paddle.com/legal/privacy">https://www.paddle.com/legal/privacy</a></p>
+
+            <h2>6. Data Security</h2>
+
+            <h3>6.1 Encryption</h3>
+            <p>All OAuth tokens are encrypted at rest using:</p>
+            <ul>
+                <li><strong>Algorithm:</strong> AES-256-GCM (Advanced Encryption Standard with Galois/Counter Mode)</li>
+                <li><strong>Key Derivation:</strong> PBKDF2 with 100,000 iterations, SHA-256 hash function</li>
+                <li><strong>Unique Initialization Vector:</strong> Each encryption operation uses a random 96-bit IV</li>
+                <li><strong>Key Source:</strong> Derived from your unique Chrome extension installation ID</li>
+            </ul>
+
+            <h3>6.2 Secure Transmission</h3>
+            <ul>
+                <li>All API requests use HTTPS (encrypted in transit)</li>
+                <li>Twitch WebSocket uses WSS (encrypted WebSocket)</li>
+                <li>OAuth flows use industry-standard PKCE (Proof Key for Code Exchange) to prevent authorization code interception</li>
+            </ul>
+
+            <h2>7. Data Retention & Deletion</h2>
+
+            <h3>7.1 Automatic Deletion</h3>
+            <ul>
+                <li><strong>Chat Messages:</strong> Automatically deleted when cache exceeds 500 messages</li>
+                <li><strong>Temporary Data:</strong> Cleared when you stop monitoring a channel</li>
+                <li><strong>Session Data:</strong> Cleared when you close your browser</li>
+            </ul>
+
+            <h3>7.2 Manual Deletion</h3>
+            <p>You can delete your data at any time by:</p>
+            <ul>
+                <li><strong>Sign Out:</strong> Click "Sign Out" in the extension popup to clear all OAuth tokens</li>
+                <li><strong>Clear Cache:</strong> Click "Stop All Sessions" to clear cached messages</li>
+                <li><strong>Uninstall:</strong> Uninstalling the extension permanently deletes all stored data</li>
+                <li><strong>Chrome Settings:</strong> Go to <code>chrome://extensions/</code> → Twitch YouTube Chat Merger → "Clear storage"</li>
+            </ul>
+
+            <h2>8. Your Privacy Rights</h2>
+
+            <h3>8.1 GDPR Rights (EU Users)</h3>
+            <p>Under GDPR, you have the right to:</p>
+            <ul>
+                <li>Access your data (via Chrome DevTools)</li>
+                <li>Rectification (modify settings in options page)</li>
+                <li>Erasure (sign out or uninstall)</li>
+                <li>Restrict processing (stop monitoring channels)</li>
+                <li>Data portability (export data feature)</li>
+                <li>Object to processing (revoke OAuth permissions)</li>
+                <li>Withdraw consent (sign out at any time)</li>
+            </ul>
+
+            <h3>8.2 CCPA Rights (California Users)</h3>
+            <p>If you are a California resident, you have the right to:</p>
+            <ul>
+                <li>Know what personal information we collect (see Section 2)</li>
+                <li>Delete your personal information (see Section 7)</li>
+                <li>Opt-out of the sale of personal information (we do NOT sell your data)</li>
+                <li>Non-discrimination for exercising your rights</li>
+            </ul>
+
+            <h2>9. Children's Privacy</h2>
+            <p>This extension is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. By using this extension, you confirm that you are at least 13 years old.</p>
+
+            <h2>10. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by:</p>
+            <ul>
+                <li>Updating the "Last Updated" date at the top of this policy</li>
+                <li>Displaying a notification in the extension popup</li>
+                <li>Posting an announcement on our GitHub repository</li>
+            </ul>
+
+            <div class="contact-box">
+                <h2>11. Contact Us</h2>
+                <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:Artem.S.Beer@gmail.com">Artem.S.Beer@gmail.com</a></li>
+                    <li><strong>GitHub Issues:</strong> <a href="https://github.com/Amoner/twitube-docs/issues">https://github.com/Amoner/twitube-docs/issues</a></li>
+                </ul>
+                <p><strong>Response Time:</strong> We aim to respond to privacy-related inquiries within 7 business days.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Twitch YouTube Kick Chat Merger. All rights reserved.</p>
+                <p style="margin-top: 8px;">
+                    <a href="privacy.html">Privacy Policy</a> ·
+                    <a href="terms.html">Terms of Service</a> ·
+                    <a href="refund.html">Refund Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
