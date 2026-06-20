@@ -29,9 +29,9 @@
             <h1>Privacy Policy</h1>
 
             <div class="last-updated">
-                <strong>Last Updated:</strong> January 2026<br>
-                <strong>Effective Date:</strong> January 2026<br>
-                <strong>Version:</strong> 1.4.6
+                <strong>Last Updated:</strong> June 2026<br>
+                <strong>Effective Date:</strong> June 2026<br>
+                <strong>Version:</strong> 1.5.3
             </div>
 
             <div class="highlight">
@@ -40,7 +40,7 @@
 
             <h2>1. Introduction</h2>
             <p>
-                Twitch YouTube Kick Chat Merger ("we", "our", or "the extension") is a Chrome browser extension that merges YouTube, Twitch, and Kick chat messages into your Twitch Dashboard for personal monitoring. This Privacy Policy explains what data we handle, how we handle it, and your rights regarding your data.
+                Twitch YouTube Kick Chat Merger ("we", "our", or "the extension") is a Chrome browser extension that merges YouTube, Twitch, Kick, and TikTok chat messages into your Twitch Dashboard for personal monitoring. This Privacy Policy explains what data we handle, how we handle it, and your rights regarding your data.
             </p>
             <p>
                 <strong>Developer:</strong> Amoner<br>
@@ -58,7 +58,7 @@
                 <li>Twitch OAuth 2.0 access tokens</li>
                 <li>Twitch user ID and username</li>
             </ul>
-            <p><strong>How we collect it:</strong> Through official YouTube and Twitch OAuth authorization flows when you click "Sign in with YouTube" or "Sign in with Twitch". Kick does not require authentication.</p>
+            <p><strong>How we collect it:</strong> Through official YouTube and Twitch OAuth authorization flows when you click "Sign in with YouTube" or "Sign in with Twitch". Kick and TikTok do not require authentication.</p>
             <p><strong>Why we need it:</strong> To access YouTube Live Chat API and Twitch EventSub API on your behalf to retrieve chat messages.</p>
             <p><strong>How we store it:</strong> Encrypted using AES-256-GCM encryption in Chrome's local storage (<code>chrome.storage.local</code>), which is isolated from websites and other extensions. The encryption key is derived from your unique extension installation ID using PBKDF2 with 100,000 iterations.</p>
             <p><strong>How long we keep it:</strong> Until you click "Sign Out" or uninstall the extension. Tokens are automatically refreshed (YouTube only) to maintain your session.</p>
@@ -69,8 +69,9 @@
                 <li>YouTube live chat messages (username, message text, timestamp, user badges)</li>
                 <li>Twitch chat messages (username, message text, timestamp, user badges)</li>
                 <li>Kick chat messages (username, message text, timestamp, emotes)</li>
+                <li>TikTok live chat messages (username, message text, timestamp, badges)</li>
             </ul>
-            <p><strong>How we collect it:</strong> Retrieved from YouTube Data API v3, Twitch EventSub WebSocket, and Kick Pusher WebSocket when you start monitoring a channel.</p>
+            <p><strong>How we collect it:</strong> Retrieved from YouTube Data API v3, Twitch EventSub WebSocket, and Kick Pusher WebSocket when you start monitoring a channel. TikTok messages are read directly from the chat on the TikTok Live page you have open in your browser (no TikTok account or login required) — the extension does not connect to any TikTok API or send any data to TikTok.</p>
             <p><strong>Why we need it:</strong> To display merged chat messages in your Twitch Dashboard.</p>
             <p><strong>How we store it:</strong> Temporarily cached in memory (service worker) and Chrome's local storage with a rolling limit of 500 messages maximum.</p>
             <p><strong>How long we keep it:</strong> Messages older than the 500-message limit are automatically deleted. All messages are cleared when you stop monitoring or uninstall the extension.</p>
@@ -87,12 +88,12 @@
             <h2>3. How We Use Your Data</h2>
 
             <h3>3.1 Local Processing Only</h3>
-            <p><strong>All data processing happens locally on your device.</strong> We do not have servers. We do not transmit your data to any third-party servers except:</p>
+            <p><strong>All data processing happens locally on your device.</strong> We do not have servers and do not transmit your data to any servers of our own. The extension communicates only with the platforms you choose to monitor:</p>
             <ul>
                 <li><strong>YouTube:</strong> To authenticate you and retrieve live chat messages via the official YouTube Data API v3</li>
                 <li><strong>Twitch:</strong> To authenticate you and retrieve chat messages via the official Twitch EventSub WebSocket API</li>
                 <li><strong>Kick:</strong> To retrieve channel info and chat messages via Kick API and Pusher WebSocket (no authentication required)</li>
-                <li><strong>Paddle:</strong> To process Pro subscription payments (Paddle is our payment processor)</li>
+                <li><strong>TikTok:</strong> To read chat messages from the TikTok Live page you have open in your browser (no authentication required; the extension does not send any data to TikTok)</li>
             </ul>
 
             <h3>3.2 Specific Uses</h3>
@@ -144,14 +145,14 @@
             <p><strong>Data shared with Kick:</strong> Only the channel name you choose to monitor (no authentication required)</p>
             <p><strong>Kick's Privacy Policy:</strong> <a href="https://kick.com/privacy-policy">https://kick.com/privacy-policy</a></p>
 
-            <h3>5.4 Paddle (Payment Processor)</h3>
-            <p>If you upgrade to Pro, payments are processed by Paddle.com. When you make a purchase:</p>
+            <h3>5.4 TikTok Live</h3>
+            <p>When you open a TikTok Live page while monitoring it, the extension reads the chat messages already displayed on that page to:</p>
             <ul>
-                <li>Paddle collects payment information (credit card, billing address)</li>
-                <li>Paddle handles VAT/tax compliance as merchant of record</li>
-                <li>We only receive: subscription status, expiry date, and email (for support)</li>
+                <li>Extract live chat messages (username, message text, badges) shown on the page</li>
+                <li>Forward them to your Twitch Dashboard for merged viewing</li>
             </ul>
-            <p><strong>Paddle's Privacy Policy:</strong> <a href="https://www.paddle.com/legal/privacy">https://www.paddle.com/legal/privacy</a></p>
+            <p><strong>Data shared with TikTok:</strong> None. The extension does not log in to TikTok, does not call any TikTok API, and does not send any data to TikTok. It only reads chat that TikTok already shows on the Live page open in your browser.</p>
+            <p><strong>TikTok's Privacy Policy:</strong> <a href="https://www.tiktok.com/legal/page/row/privacy-policy/en">https://www.tiktok.com/legal/page/row/privacy-policy/en</a></p>
 
             <h2>6. Data Security</h2>
 
@@ -238,7 +239,7 @@
     <footer>
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2025 Twitch YouTube Kick Chat Merger. All rights reserved.</p>
+                <p>&copy; 2026 Twitch YouTube Kick Chat Merger. All rights reserved.</p>
                 <p style="margin-top: 8px;">
                     <a href="privacy.html">Privacy Policy</a> ·
                     <a href="terms.html">Terms of Service</a> ·

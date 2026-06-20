@@ -537,6 +537,11 @@ footer {
   color: var(--kick-green);
 }
 
+.badge-tiktok {
+  background: rgba(0, 242, 234, 0.18);
+  color: #00f2ea;
+}
+
 .badge-pro {
   background: linear-gradient(135deg, var(--twitch-purple), var(--youtube-red));
   color: white;
